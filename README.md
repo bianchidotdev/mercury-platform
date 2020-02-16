@@ -15,7 +15,12 @@ The initial implementation aims to provide a way to provide burstable quantitati
 
 ## Roadmap
 [ ] Brainstorm potential architecture patterns
+
 [ ] Build a system for retrieving and storing financial data in an economical and sustainable way
+
 [ ] (If necessary) Clean data from sources and output a format consumable by our analysis tools
+
 [ ] Design an extensible system that can execute new algorithms and analyses against market data
+
 [ ] Develop the infrastructure patterns necessary to handle distributed workloads
+
