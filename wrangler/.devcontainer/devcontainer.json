@@ -1,0 +1,17 @@
+{
+	"name": "Elixir Sample",
+	"dockerFile": "Dockerfile",
+	"postCreateCommand": "mix local.hex --force",
+	// "remoteUser": "vscode",
+	"remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/root/.cargo/bin",
+    "MY_REMOTE_VARIABLE": "some-other-value-here",
+},
+	"extensions": [
+		"mjmcloug.vscode-elixir",
+		"rust-lang.rust",
+		"bungcip.better-toml",
+		"vscodevim.vim",
+		"ms-azuretools.vscode-docker"
+	]
+}
