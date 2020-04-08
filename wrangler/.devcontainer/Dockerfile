@@ -29,7 +29,7 @@ RUN apt-get update && \
     autoconf automake autotools-dev libtool xutils-dev && \
     rm -rf /var/lib/apt/lists/*
 
-ENV SSL_VERSION=1.0.2s
+ENV SSL_VERSION=1.1.1f
 
 RUN curl https://www.openssl.org/source/openssl-$SSL_VERSION.tar.gz -O && \
     tar -xzf openssl-$SSL_VERSION.tar.gz && \
@@ -42,7 +42,10 @@ ENV OPENSSL_LIB_DIR=/usr/local/ssl/lib \
 
 # install toolchain
 RUN curl https://sh.rustup.rs -sSf | \
-    sh -s -- --default-toolchain stable -y
+    sh -s -- --default-toolchain nightly -y
+
+RUN cargo install tealdeer \
+    && exa
 
 # Clean up
 RUN apt-get autoremove -y \

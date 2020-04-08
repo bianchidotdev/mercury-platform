@@ -1,5 +1,5 @@
 {
-	"name": "Elixir Sample",
+	"name": "Wrangler Elixir with Rust NIFs",
 	"dockerFile": "Dockerfile",
 	"postCreateCommand": "mix local.hex --force",
 	// "remoteUser": "vscode",
