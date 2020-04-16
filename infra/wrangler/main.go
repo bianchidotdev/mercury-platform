@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	GCRRepoPath = "gcr.io/"
+	GCRRepoPath = "gcr.io"
 	GCPProject  = "mercuy"
 	ProjectName = "wrangler"
 )
