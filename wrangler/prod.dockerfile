@@ -1,10 +1,5 @@
-#-----------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License. See LICENSE in the project root for license information.
-#-----------------------------------------------------------------------------------------
-FROM elixir:1.10
-
-# Elixir needs UTF-8
+# ---- Build Stage ----
+FROM elixir:1.10 as builder
 
 # Configure apt
 ENV DEBIAN_FRONTEND=noninteractive
@@ -18,9 +13,7 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 ENV LANG="en_US.UTF-8"
 
-### RUST ###
-# common packages
-# Install git, process tools, lsb-release (common in install instructions for CLIs)
+### Rust ###
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     git procps lsb-release \
@@ -40,16 +33,36 @@ ENV OPENSSL_LIB_DIR=/usr/local/ssl/lib \
     OPENSSL_INCLUDE_DIR=/usr/local/ssl/include \
     OPENSSL_STATIC=1
 
-# install toolchain
 RUN curl https://sh.rustup.rs -sSf | \
     sh -s -- --default-toolchain nightly -y
 
-RUN ~/.cargo/bin/cargo install tealdeer exa
+ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Clean up
-RUN apt-get autoremove -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
-ENV DEBIAN_FRONTEND=dialog
+### COPY FILES ###
 
-ENV SHELL /bin/bash
+# Create the application build directory
+RUN mkdir /app
+WORKDIR /app
+
+ENV MIX_ENV=prod
+COPY lib ./lib
+COPY native ./native
+COPY ["mix.exs", "mix.lock", "./"]
+
+### SETUP AND RELEASE ###
+
+RUN mix local.rebar --force \
+    && mix local.hex --force \
+    && mix deps.get \
+    && mix release
+
+# ---- Application Stage ----
+FROM elixir:1.10
+RUN apt-get update && \
+  apt-get install --no-install-recommends -y \
+  bash openssl && \
+  rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY --from=builder /app/_build/prod/rel/wrangler/ .
+CMD ["/app/bin/wrangler", "start"]
