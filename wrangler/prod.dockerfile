@@ -1,5 +1,5 @@
 # ---- Build Stage ----
-FROM elixir:1.10 as builder
+FROM elixir:1.10-slim as builder
 
 # Configure apt
 ENV DEBIAN_FRONTEND=noninteractive
@@ -57,12 +57,32 @@ RUN mix local.rebar --force \
     && mix release
 
 # ---- Application Stage ----
-FROM elixir:1.10
+FROM debian:buster-slim AS app
+
+ENV MIX_ENV=prod \
+  LANG=C.UTF-8 \
+  PORT=4000
+
+# Exposes port to the host machine
+EXPOSE $PORT
+
+# Set dirs not available in stretch-slim package, needed for postgresql-client
+# RUN seq 1 8 | xargs -I{} mkdir -p /usr/share/man/man{}
+
+# Install stable dependencies that don't change often
 RUN apt-get update && \
-  apt-get install --no-install-recommends -y \
+  apt-get install -y --no-install-recommends \
   bash openssl && \
   rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
+# postgresql-client && \
+
+# Copy the build artifact from the builder stage and create a non root user
+RUN useradd --create-home wrangler
+WORKDIR /home/wrangler
 COPY --from=builder /app/_build/prod/rel/wrangler/ .
-CMD ["/app/bin/wrangler", "start"]
+RUN chown -R wrangler: /home/wrangler/
+USER wrangler
+
+# Run the release
+CMD ["/home/wrangler/bin/wrangler", "start"]
