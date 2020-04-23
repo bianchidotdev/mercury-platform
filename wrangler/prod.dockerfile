@@ -10,10 +10,10 @@ RUN apk add --no-cache --update \
 
 WORKDIR /app
 
-COPY mix.* .
+COPY mix.* ./
 RUN mix do local.hex --force, local.rebar --force, deps.get, deps.compile
 
-COPY . .
+COPY . ./
 
 ### SETUP AND RELEASE ###
 ENV MIX_ENV=prod

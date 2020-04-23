@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  gcs-mock:
+    image: fsouza/fake-gcs-server
+    volumes:
+      - "./data:/data"
+
+  wrangler:
+    build:
+      context: ./wrangler
+      dockerfile: devtest.dockerfile
+

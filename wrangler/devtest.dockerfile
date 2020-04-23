@@ -7,9 +7,9 @@ RUN apk add bash curl
 
 WORKDIR /app
 
-COPY mix.* .
+COPY mix.* ./
 RUN mix do local.hex --force, local.rebar --force, deps.get, deps.compile
 
-COPY . .
+COPY . ./
 
 CMD /bin/bash
