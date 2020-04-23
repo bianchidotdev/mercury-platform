@@ -18,34 +18,11 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 ENV LANG="en_US.UTF-8"
 
-### RUST ###
-# common packages
-# Install git, process tools, lsb-release (common in install instructions for CLIs)
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
-    git procps lsb-release \
-    ca-certificates curl file \
-    build-essential \
-    autoconf automake autotools-dev libtool xutils-dev && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV SSL_VERSION=1.1.1f
-
-RUN curl https://www.openssl.org/source/openssl-$SSL_VERSION.tar.gz -O && \
-    tar -xzf openssl-$SSL_VERSION.tar.gz && \
-    cd openssl-$SSL_VERSION && ./config && make depend && make install && \
-    cd .. && rm -rf openssl-$SSL_VERSION*
-
-ENV OPENSSL_LIB_DIR=/usr/local/ssl/lib \
-    OPENSSL_INCLUDE_DIR=/usr/local/ssl/include \
-    OPENSSL_STATIC=1
-
-# install toolchain
-RUN curl https://sh.rustup.rs -sSf | \
-    sh -s -- --default-toolchain nightly -y
-
-RUN cargo install tealdeer \
-    && exa
+# Install all niceties
+RUN apt-get -y install --no-install-recommends \
+  tldr \
+  exa \
+  vim
 
 # Clean up
 RUN apt-get autoremove -y \
