@@ -5,7 +5,7 @@ defmodule WranglerTest do
   import Wrangler.Factory
 
   setup do
-    ExMachina.Sequence.reset
+    ExMachina.Sequence.reset()
   end
 
   test "greets the world" do
@@ -18,7 +18,7 @@ defmodule WranglerTest do
 
   test "timeseries date sequence works" do
     data = build_list(10, :timeseries_data)
-    last = data |> List.last
+    last = data |> List.last()
     assert last.date == ~D[2020-05-04]
   end
 end

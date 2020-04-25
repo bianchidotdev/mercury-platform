@@ -12,4 +12,6 @@ RUN mix do local.hex --force, local.rebar --force, deps.get, deps.compile
 
 COPY . ./
 
+RUN mix compile
+
 CMD /bin/bash

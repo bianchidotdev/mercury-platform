@@ -6,18 +6,22 @@ defmodule Wrangler.AlphaVantageClient do
 
   def handle_resp(resp) do
     case resp do
-      %{"Error Message" => error} -> {:error, error}
+      %{"Error Message" => error} ->
+        {:error, error}
+
       %{
         "Meta Data" => metadata,
         "Time Series (Daily)" => timeseries
-      } -> {:ok, handle_success(metadata, timeseries)}
+      } ->
+        {:ok, handle_success(metadata, timeseries)}
     end
   end
 
   def handle_success(metadata, timeseries) do
     symbol = metadata["2. Symbol"]
-    timeseries |>
-      Enum.map(&map_to_data_struct(symbol, &1))
+
+    timeseries
+    |> Enum.map(&map_to_data_struct(symbol, &1))
   end
 
   def map_to_data_struct(symbol, {date, data}) do
@@ -31,6 +35,7 @@ defmodule Wrangler.AlphaVantageClient do
       "7. dividend amount" => _divident_amount,
       "8. split coefficient" => _split_coefficient
     } = data
+
     %Wrangler.TimeseriesData{
       symbol: symbol,
       date: date,

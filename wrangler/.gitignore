@@ -23,3 +23,7 @@ erl_crash.dump
 wrangler-*.tar
 
 /priv/
+
+/config/gcloud
+
+/.elixir.ls

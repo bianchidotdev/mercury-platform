@@ -4,8 +4,7 @@ end
 
 defimpl CSV.Encode, for: Wrangler.TimeseriesData do
   def encode(data, env \\ []) do
-    
     [data[:symbol], data[:date], data[:open], data[:close], data[:high], data[:low]]
-      |> CSV.Encode.encode(env)
+    |> CSV.Encode.encode(env)
   end
 end

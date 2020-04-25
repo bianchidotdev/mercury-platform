@@ -12,7 +12,7 @@ defmodule Wrangler.Factory do
       close: ""
     }
   end
-  
+
   def date_sequence(seq) do
     Date.add(~D[2020-04-25], seq)
   end
