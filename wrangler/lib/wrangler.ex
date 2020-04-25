@@ -15,4 +15,9 @@ defmodule Wrangler do
   def hello do
     :world
   end
+
+  def pull_and_store(symbol) do
+    Wrangler.Fetcher.pull_symbol(symbol)
+    |> Wrangler.Saver.store_timeseries_data
+  end
 end

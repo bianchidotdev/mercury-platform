@@ -9,7 +9,8 @@ defmodule Wrangler.MixProject do
       start_permanent: Mix.env() == :prod,
       # compilers: [:rustler] ++ Mix.compilers(),
       # rustler_crates: rustler_crates(),
-      deps: deps()
+      deps: deps(),
+      elixirc_paths: elixirc_paths(Mix.env)
     ]
   end
 
@@ -17,7 +18,6 @@ defmodule Wrangler.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      env: [test: "v"],
     ]
   end
 
@@ -26,6 +26,7 @@ defmodule Wrangler.MixProject do
     [
       {:vantagex, "~> 0.1"},
       {:csv, "~> 2.3"},
+      {:ex_machina, "~> 2.4", only: :test},
       # {:rustler, "~> 0.21.0"},
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
@@ -38,4 +39,6 @@ defmodule Wrangler.MixProject do
   #   ]
   # end
 
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 end
