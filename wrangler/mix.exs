@@ -27,6 +27,8 @@ defmodule Wrangler.MixProject do
       {:csv, "~> 2.3"},
       # {:google_api_storage, "~> 0.20"},
       {:goth, "~> 1.2.0"},
+      {:hackney, "~> 1.15.2"},
+      {:jason, ">= 1.0.0"},
       {:tesla, "~> 1.3.0"},
       {:vantagex, "~> 0.1"},
       {:ex_machina, "~> 2.4", only: :test}
