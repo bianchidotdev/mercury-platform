@@ -1,7 +1,7 @@
 defmodule Wrangler.AlphaVantageClient do
   def pull_symbol(sym) do
-    resp = Vantagex.TimeSeries.daily_adjusted(sym, outputsize: "full")
-    handle_resp(resp)
+    Vantagex.TimeSeries.daily_adjusted(sym, outputsize: "full")
+    |> handle_resp
   end
 
   def handle_resp(resp) do

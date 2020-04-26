@@ -6,19 +6,24 @@ defmodule Wrangler.GCPClient do
   # plug Tesla.Middleware.Headers, [{"authorization", "token xyz"}]
   plug(Tesla.Middleware.JSON)
 
-  def pull_triggers(bucket_name) do
+  def pull_triggers(bucket) do
+    list_bucket_objects(bucket)
+  end
+
+  def list_bucket_objects(bucket) do
+    get(buckets_url() <> "/" <> bucket <> "/o")
   end
 
   def list_buckets do
-    get(bucket_url)
+    get(buckets_url())
   end
 
   defp storage_base_url do
     "storage/v1"
   end
 
-  defp bucket_url do
-    storage_base_url <> "/b"
+  defp buckets_url do
+    storage_base_url() <> "/b"
   end
 
   # def list_buckets(project_id) do

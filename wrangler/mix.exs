@@ -1,6 +1,8 @@
 defmodule Wrangler.MixProject do
   use Mix.Project
 
+  @test_envs [:test, :integration]
+
   def project do
     [
       app: :wrangler,
@@ -31,6 +33,8 @@ defmodule Wrangler.MixProject do
       {:jason, ">= 1.0.0"},
       {:tesla, "~> 1.3.0"},
       {:vantagex, "~> 0.1"},
+
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:ex_machina, "~> 2.4", only: :test}
       # {:rustler, "~> 0.21.0"},
       # {:dep_from_hexpm, "~> 0.3.0"},
@@ -44,6 +48,6 @@ defmodule Wrangler.MixProject do
   #   ]
   # end
 
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(env) when env in @test_envs, do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 end

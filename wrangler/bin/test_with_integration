@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mix deps.get
+mix local.rebar --force
+mix test --include integration

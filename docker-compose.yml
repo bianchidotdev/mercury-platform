@@ -13,5 +13,9 @@ services:
       dockerfile: devtest.dockerfile
     environment:
       - GCP_API_HOST=https://gcs-mock:4443
-    command: ./bin/test
+    volumes:
+      - ./wrangler/config:/app/config
+      - ./wrangler/lib:/app/lib
+      - ./wrangler/test:/app/test
+    command: ./bin/test_with_integration
 
