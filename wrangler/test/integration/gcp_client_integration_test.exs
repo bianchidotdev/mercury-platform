@@ -16,9 +16,9 @@ defmodule Wrangler.GCPClientTest do
 
   describe "list_bucket_objects/1" do
     test "it responds with gcs objects" do
-      {:ok, resp} = GCPClient.list_bucket_objects(Application.get_env(:wrangler, :trigger_bucket))
-      body = resp.body |> Jason.decode!
-      assert body == ""
+      {:ok, objects} = GCPClient.list_bucket_objects(Application.get_env(:wrangler, :trigger_bucket))
+      IO.inspect objects
+      assert objects == ""
     end
   end
 end

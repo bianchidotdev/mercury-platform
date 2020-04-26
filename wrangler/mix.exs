@@ -31,11 +31,12 @@ defmodule Wrangler.MixProject do
       {:goth, "~> 1.2.0"},
       {:hackney, "~> 1.15.2"},
       {:jason, ">= 1.0.0"},
+      {:ok, "~> 2.3"},
       {:tesla, "~> 1.3.0"},
       {:vantagex, "~> 0.1"},
 
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:ex_machina, "~> 2.4", only: :test}
+      {:ex_machina, "~> 2.4", only: @test_envs}
       # {:rustler, "~> 0.21.0"},
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
