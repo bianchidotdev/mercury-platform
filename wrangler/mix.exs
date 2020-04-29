@@ -33,6 +33,8 @@ defmodule Wrangler.MixProject do
       {:jason, ">= 1.0.0"},
       {:ok, "~> 2.3"},
       {:tesla, "~> 1.3.0"},
+      {:timber, "~> 3.0"},
+      {:timber_exceptions, "~> 2.0"},
       {:vantagex, "~> 0.1"},
 
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},

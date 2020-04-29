@@ -17,8 +17,7 @@ defmodule Wrangler.GCPClientTest do
   describe "list_bucket_objects/1" do
     test "it responds with gcs objects" do
       {:ok, objects} = GCPClient.list_bucket_objects(Application.get_env(:wrangler, :trigger_bucket))
-      IO.inspect objects
-      assert objects == ""
+      assert Enum.any?(objects, &(&1.name == "test.csv"))
     end
   end
 end

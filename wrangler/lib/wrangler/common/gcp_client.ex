@@ -1,20 +1,16 @@
-defmodule TeslaGuards do
-  defguard is_success(status_code) when status_code in 200..299
-end
-
 defmodule Wrangler.GCPClient do
   # alias Goth.Token
   require OK
+  require Logger
   use OK.Pipe
   use Tesla
-  import TeslaGuards
 
   plug(Tesla.Middleware.BaseUrl, Application.fetch_env!(:wrangler, :gcp_api_host))
   # plug Tesla.Middleware.Headers, [{"authorization", "token xyz"}]
   plug(Tesla.Middleware.JSON)
 
   def pull_triggers(bucket) do
-    {:ok, resp} = list_bucket_objects(bucket)
+    {:ok, _resp} = list_bucket_objects(bucket)
   end
 
   def list_buckets do
@@ -22,6 +18,7 @@ defmodule Wrangler.GCPClient do
   end
   
   def list_bucket_objects(bucket) do
+    Logger.info "hi"
     call(method: :get, url: storage_base_url() <> "/b/" <> bucket <> "/o")
     ~>> Map.fetch(:items)
   end
@@ -29,7 +26,7 @@ defmodule Wrangler.GCPClient do
   # opts includes [:query, :body, :headers, :opts]
   def call(options) do
     case request(options) do
-      {:ok, %{status_code: 200, body: body}} -> parse_body(body)
+      {:ok, %{status: 200, body: body}} -> parse_body(body)
       {:ok, resp} -> handle_resp(resp)
       {:error, error} -> {:error, error}
     end
@@ -40,12 +37,11 @@ defmodule Wrangler.GCPClient do
     ~>> Jason.decode(keys: :atoms)
   end
 
-  defp handle_resp(resp) when is_success(resp) do
-    {:ok, resp}
-  end
-
   defp handle_resp(resp) do
-    {:error, resp}
+    case resp do
+      %{status: 200} -> {:ok, resp}
+      _ -> {:error, resp}
+    end
   end
 
   defp storage_base_url do
