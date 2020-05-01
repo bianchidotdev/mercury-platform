@@ -16,9 +16,10 @@ defmodule Wrangler.GCPClient do
   def list_buckets do
     get(storage_base_url() <> "/b")
   end
-  
+
   def list_bucket_objects(bucket) do
-    Logger.info "hi"
+    Logger.info("hi")
+
     call(method: :get, url: storage_base_url() <> "/b/" <> bucket <> "/o")
     ~>> Map.fetch(:items)
   end

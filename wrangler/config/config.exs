@@ -4,13 +4,13 @@ config :wrangler,
   gcp_api_host: System.get_env("GCP_API_HOST", "https://www.googleapis.com"),
   trigger_bucket: "mercury-platform-triggers"
 
-  config :goth,
-    disabled: true
+config :goth,
+  disabled: true
 
 config :logger,
   backends: [:console],
   utc_log: true
-  
+
 config :logger, :console,
   format: {Timber.Formatter, :format},
   metadata: :all

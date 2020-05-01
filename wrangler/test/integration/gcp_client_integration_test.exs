@@ -5,18 +5,20 @@ defmodule Wrangler.GCPClientTest do
 
   describe "list_buckets/0" do
     test "it responds without an error" do
-      assert {:ok, _} = GCPClient.list_buckets
+      assert {:ok, _} = GCPClient.list_buckets()
     end
 
     test "it hits gcs-mock" do
-      {:ok, resp} = GCPClient.list_buckets
+      {:ok, resp} = GCPClient.list_buckets()
       assert "https://gcs-mock:4443/storage/v1/b" == resp.url
     end
   end
 
   describe "list_bucket_objects/1" do
     test "it responds with gcs objects" do
-      {:ok, objects} = GCPClient.list_bucket_objects(Application.get_env(:wrangler, :trigger_bucket))
+      {:ok, objects} =
+        GCPClient.list_bucket_objects(Application.get_env(:wrangler, :trigger_bucket))
+
       assert Enum.any?(objects, &(&1.name == "test.csv"))
     end
   end
