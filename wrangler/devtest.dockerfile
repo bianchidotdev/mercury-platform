@@ -14,4 +14,5 @@ COPY . ./
 
 RUN mix compile
 
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD /bin/bash

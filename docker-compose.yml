@@ -22,5 +22,5 @@ services:
       #- ./wrangler/_build:/app/_build
       #- ./wrangler/bin:/app/bin
       #- ./wrangler
-    #command: ./bin/test_with_integration
+    command: tail -f /dev/null
 

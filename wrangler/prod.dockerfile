@@ -31,4 +31,5 @@ RUN chown -R wrangler: /home/wrangler/
 USER wrangler
 
 # Run the release
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["/home/wrangler/bin/wrangler", "start"]
