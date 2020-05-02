@@ -13,10 +13,19 @@ The initial implementation aims to provide a way to provide burstable quantitati
 ## Constraints
 - Minimal permanent infrastructure
 
+## Testing
+Full testing of the platform can be done by calling `./bin/test`. This starts each service with necessary dependencies and runs through each test suite one at a time. This is not a proper test of the platform, since it does not have the concept of GCP Tasks and because it uses a mock of the GCP Storage platform.
+
+Individual services can be tested by entering that services directory and running `./bin/test`. 
+
 ## Roadmap
-[ ] Brainstorm potential architecture patterns
+[x] Brainstorm potential architecture patterns
+
+- First attempt will be using GCP Cloud Run to host our infrastructure, Storage for the persistence of files and data triggers, and Tasks to execute those triggers.
 
 [ ] Build a system for retrieving and storing financial data in an economical and sustainable way
+
+- Parquet was the first plan, though we have switched to just using CSV until it becomes prohibitive for some reason
 
 [ ] (If necessary) Clean data from sources and output a format consumable by our analysis tools
 
