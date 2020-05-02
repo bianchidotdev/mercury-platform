@@ -1,0 +1,16 @@
+{
+  "kind": "storage#objects",
+  "items": [
+    {
+      "kind": "storage#object",
+      "name": "test.csv",
+      "id": "mercury-platform-triggers/test.csv",
+      "bucket": "mercury-platform-triggers",
+      "size": "19",
+      "timeCreated": "2020-05-01T23:11:59Z",
+      "timeDeleted": "0001-01-01T00:00:00Z",
+      "updated": "2020-05-01T23:11:59Z",
+      "generation": "0"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ defmodule Wrangler.GCPClient do
 
   plug(Tesla.Middleware.BaseUrl, Application.fetch_env!(:wrangler, :gcp_api_host))
   # plug Tesla.Middleware.Headers, [{"authorization", "token xyz"}]
+  plug(Tesla.Middleware.Logger)
   plug(Tesla.Middleware.JSON)
 
   def pull_triggers(bucket) do
@@ -33,6 +34,10 @@ defmodule Wrangler.GCPClient do
     end
   end
 
+  def storage_base_url do
+    "storage/v1"
+  end
+
   defp parse_body(body) do
     {:ok, body}
     ~>> Jason.decode(keys: :atoms)
@@ -43,10 +48,6 @@ defmodule Wrangler.GCPClient do
       %{status: 200} -> {:ok, resp}
       _ -> {:error, resp}
     end
-  end
-
-  defp storage_base_url do
-    "storage/v1"
   end
 
   # def get_token(scope // "storage") do

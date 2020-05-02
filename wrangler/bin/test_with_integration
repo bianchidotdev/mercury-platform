@@ -2,4 +2,4 @@
 
 mix deps.get
 mix local.rebar --force
-MIX_ENV=integration mix test
+MIX_ENV=integration mix test --include integration_only
