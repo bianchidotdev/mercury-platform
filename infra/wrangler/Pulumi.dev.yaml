@@ -1,2 +1,3 @@
 config:
-  gcp:project: mercuy
+  gcp:project: mercury-platform
+  gcp:region: us-central1
