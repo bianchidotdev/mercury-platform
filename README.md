@@ -6,7 +6,7 @@ The initial implementation aims to provide a way to provide burstable quantitati
 
 ## Decisions
 
-Project decisions are being tracked in [Architecture Decision Records](https://adr.github.io/) located [within this repo](docs/adr/)
+Project decisions are being tracked in [Architecture Decision Records](https://adr.github.io/) located [within this repo](doc/adr/)
 
 ## Goals
 1. Create a platform that provides an easy interface for testing hypotheses about financial market trends utilizing EOD data
