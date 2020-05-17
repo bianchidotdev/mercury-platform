@@ -36,7 +36,7 @@ defmodule Wrangler.MixProject do
       {:timber, "~> 3.0"},
       {:timber_exceptions, "~> 2.0"},
       {:vantagex, "~> 0.1"},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:ex_machina, "~> 2.4", only: @test_envs}
       # {:rustler, "~> 0.21.0"},
       # {:dep_from_hexpm, "~> 0.3.0"},
