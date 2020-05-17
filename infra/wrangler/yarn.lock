@@ -79,7 +79,26 @@
     "@types/express" "^4.16.0"
     read-package-json "^2.0.13"
 
-"@pulumi/pulumi@2.1.0", "@pulumi/pulumi@^2.0.0":
+"@pulumi/pulumi@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.2.1.tgz#f5831153061f12732959165af69724db499d24e8"
+  integrity sha512-TuYyTqhjtbLNbXAEgBrkObfYX5fef5j2g39Qybg4BCccprmZ5Q/cqgnw0GYdqlyQaKWuuFosiOm8/6RqxmHGsw==
+  dependencies:
+    "@grpc/grpc-js" "^0.6.15"
+    "@pulumi/query" "^0.3.0"
+    google-protobuf "^3.5.0"
+    minimist "^1.2.0"
+    normalize-package-data "^2.4.0"
+    protobufjs "^6.8.6"
+    read-package-tree "^5.3.1"
+    require-from-string "^2.0.1"
+    semver "^6.1.0"
+    source-map-support "^0.4.16"
+    ts-node "^7.0.1"
+    typescript "~3.7.3"
+    upath "^1.1.0"
+
+"@pulumi/pulumi@^2.0.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.1.0.tgz#f309ca8f95c55564ac25894b68769c7291a6080e"
   integrity sha512-0ZW19bugxqTFHWBSVpybNpIUugzCsyOq5xaFM6Z2PJn+G8HPKLebHPIaFCfsARxzOERG6xFN1a9lc++x13/2fw==
