@@ -62,7 +62,7 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/docker@^2.0.0":
+"@pulumi/docker@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@pulumi/docker/-/docker-2.1.1.tgz#83d35a1ed65f83fa060822651e7954d2dab027cd"
   integrity sha512-2DlmXrx0IKMZdqNb3ZaYtThiUOhDD9rUHggkuFHvbTATT3G+22gO92PTmaNYbTIxXlteXu7pphvAjbkWyb1tKA==
@@ -70,7 +70,7 @@
     "@pulumi/pulumi" "^2.0.0"
     semver "^5.4.0"
 
-"@pulumi/gcp@^3.0.0":
+"@pulumi/gcp@3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-3.3.0.tgz#33245b9465a916ef0ebd857993a64de16b386eda"
   integrity sha512-6Mjbcqg/gGKMib4knlU42oXMOZ57qxYxP/O7zGV6VkBm9Fm7HHrfNrby2wqzl3ASxLsgLdQN+i0X8zd44bJfEg==
@@ -79,7 +79,7 @@
     "@types/express" "^4.16.0"
     read-package-json "^2.0.13"
 
-"@pulumi/pulumi@^2.0.0":
+"@pulumi/pulumi@2.1.0", "@pulumi/pulumi@^2.0.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.1.0.tgz#f309ca8f95c55564ac25894b68769c7291a6080e"
   integrity sha512-0ZW19bugxqTFHWBSVpybNpIUugzCsyOq5xaFM6Z2PJn+G8HPKLebHPIaFCfsARxzOERG6xFN1a9lc++x13/2fw==
@@ -151,7 +151,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.4.tgz#1581d6c16e3d4803eb079c87d4ac893ee7501c2c"
   integrity sha512-x26ur3dSXgv5AwKS0lNfbjpCakGIduWU1DU91Zz58ONRWrIKGunmZBNv4P7N+e27sJkiGDsw/3fT4AtsqQBrBA==
 
-"@types/node@^10.0.0":
+"@types/node@10.17.21":
   version "10.17.21"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.21.tgz#c00e9603399126925806bed2d9a1e37da506965e"
   integrity sha512-PQKsydPxYxF1DsAFWmunaxd3sOi3iMt6Zmx/tgaagHYmwJ/9cRH91hQkeJZaUGWbvn0K5HlSVEXkn5U/llWPpQ==
