@@ -4,6 +4,10 @@ Mercury is a financial analysis platform that facilitates quick and easy algorit
 
 The initial implementation aims to provide a way to provide burstable quantitative analysis with no/minimal permanent infrastructure costs.
 
+## Decisions
+
+Project decisions are being tracked in [Architecture Decision Records](https://adr.github.io/) located [within this repo](docs/adr/)
+
 ## Goals
 1. Create a platform that provides an easy interface for testing hypotheses about financial market trends utilizing EOD data
 1. Process existing algorithms on a daily basis analyzing the most recent EOD data
