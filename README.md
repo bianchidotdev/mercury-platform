@@ -1,3 +1,5 @@
+![Docker Compose Test](https://github.com/michaeldbianchi/mercury-platform/workflows/Docker%20Compose%20Test/badge.svg?branch=master)
+
 # Mercury Platform
 
 Mercury is a financial analysis platform that facilitates quick and easy algorithmic analysis of market data. Named (at least temporarily) after the Roman God of Commerce.
