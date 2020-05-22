@@ -8,6 +8,7 @@ services:
 
   wrangler:
     depends_on: ["gcs-mock"]
+    image: michaeldbianchi/wrangler:dev
     build:
       context: ./wrangler
       dockerfile: devtest.dockerfile
@@ -15,11 +16,4 @@ services:
       - GCP_API_HOST=https://gcs-mock:4443
     volumes:
       - ./wrangler:/app
-      #- ./wrangler/config:/app/config
-      #- ./wrangler/lib:/app/lib
-      #- ./wrangler/test:/app/test
-      #- ./wrangler/_build:/app/_build
-      #- ./wrangler/bin:/app/bin
-      #- ./wrangler
     command: tail -f /dev/null
-

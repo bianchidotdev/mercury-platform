@@ -24,11 +24,10 @@ FROM alpine:3
 RUN apk add --no-cache --update bash openssl
 
 RUN addgroup -S wrangler && adduser -S wrangler -G wrangler
+USER wrangler
 
 WORKDIR /home/wrangler
-COPY --from=builder /app/_build/prod/rel/wrangler/ .
-RUN chown -R wrangler: /home/wrangler/
-USER wrangler
+COPY --from=builder --chown=wrangler:wrangler ["/app/_build/prod/rel/wrangler/", "/app/docker-entrypoint.sh", "."]
 
 # Run the release
 ENTRYPOINT ["./docker-entrypoint.sh"]

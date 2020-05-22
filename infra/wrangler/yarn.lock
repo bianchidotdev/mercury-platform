@@ -62,18 +62,18 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/docker@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/docker/-/docker-2.1.1.tgz#83d35a1ed65f83fa060822651e7954d2dab027cd"
-  integrity sha512-2DlmXrx0IKMZdqNb3ZaYtThiUOhDD9rUHggkuFHvbTATT3G+22gO92PTmaNYbTIxXlteXu7pphvAjbkWyb1tKA==
+"@pulumi/docker@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/docker/-/docker-2.2.0.tgz#547c8146427d26335290bffdea4d767530026251"
+  integrity sha512-qH3wDlll4udIi0Qja0GzZcCih8Q/eC+ufv+XEP2KLC/CxvvIqEkDnyhfD29t/TiwsBKeSr9FT24MH5+yJt1neA==
   dependencies:
     "@pulumi/pulumi" "^2.0.0"
     semver "^5.4.0"
 
-"@pulumi/gcp@3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-3.5.0.tgz#850fe29c55d085fa4b33227497efd8bc27345492"
-  integrity sha512-2DnBPGuDHun/ofq23tbSCVRYKkH2UHCV+W5ZULvOmmUsQq/kly88mAfat4MtVaWgA/rIYu0Fq+kXodT+nH7asA==
+"@pulumi/gcp@3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-3.6.0.tgz#fba59fb9180b16ae8774c97c8695e87af1893bd7"
+  integrity sha512-kmBSg78jshB2u9Qz1Pl1QR6AGkO2TQ1HABIBN1odLE8yJ55h1rYjL1C84QII4XWn6mHuN/w7HbXlJSqy22az+A==
   dependencies:
     "@pulumi/pulumi" "^2.0.0"
     "@types/express" "^4.16.0"
@@ -170,10 +170,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.4.tgz#1581d6c16e3d4803eb079c87d4ac893ee7501c2c"
   integrity sha512-x26ur3dSXgv5AwKS0lNfbjpCakGIduWU1DU91Zz58ONRWrIKGunmZBNv4P7N+e27sJkiGDsw/3fT4AtsqQBrBA==
 
-"@types/node@10.17.21":
-  version "10.17.21"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.21.tgz#c00e9603399126925806bed2d9a1e37da506965e"
-  integrity sha512-PQKsydPxYxF1DsAFWmunaxd3sOi3iMt6Zmx/tgaagHYmwJ/9cRH91hQkeJZaUGWbvn0K5HlSVEXkn5U/llWPpQ==
+"@types/node@10.17.24":
+  version "10.17.24"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.24.tgz#c57511e3a19c4b5e9692bb2995c40a3a52167944"
+  integrity sha512-5SCfvCxV74kzR3uWgTYiGxrd69TbT1I6+cMx1A5kEly/IVveJBimtAMlXiEyVFn5DvUFewQWxOOiJhlxeQwxgA==
 
 "@types/qs@*":
   version "6.9.1"

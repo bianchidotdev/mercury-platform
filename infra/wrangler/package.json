@@ -1,11 +1,11 @@
 {
     "name": "wrangler",
     "devDependencies": {
-        "@types/node": "10.17.21"
+        "@types/node": "10.17.24"
     },
     "dependencies": {
         "@pulumi/pulumi": "2.2.1",
-        "@pulumi/gcp": "3.5.0",
-        "@pulumi/docker": "2.1.1"
+        "@pulumi/gcp": "3.6.0",
+        "@pulumi/docker": "2.2.0"
     }
 }
