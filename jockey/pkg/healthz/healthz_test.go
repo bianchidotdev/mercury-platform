@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
 )
 
 var router *gin.Engine
@@ -27,18 +26,28 @@ func TestHealthGET(t *testing.T) {
 	req, _ := http.NewRequest("GET", "/healthz", nil)
 	router.ServeHTTP(w, req)
 
-	assert.Equal(t, http.StatusOK, w.Code)
+	if status := w.Code; status != http.StatusOK {
+		t.Errorf("endpoint returned wrong status code: got %v want %v",
+			status, http.StatusOK)
+	}
 
-	body := gin.H{
-		"status": "pass",
+	statusKey := "status"
+	expectedBody := gin.H{
+		statusKey: "pass",
 	}
 	// Convert the JSON response to a map
 	var response map[string]string
 	err := json.Unmarshal([]byte(w.Body.String()), &response)
+	if err != nil {
+		t.Errorf("error unmarshalling response into hashmap %s", err)
+	}
+
 	// Grab the value & whether or not it exists
-	value, exists := response["status"]
-	// Make some assertions on the correctness of the response.
-	assert.Nil(t, err)
-	assert.True(t, exists)
-	assert.Equal(t, body["status"], value)
+	value, exists := response[statusKey]
+	if exists != true {
+		t.Errorf("key %s not found in response map - %s", statusKey, response)
+	}
+	if expectedBody[statusKey] != value {
+		t.Errorf("endpoint returned wrong status: got %s want %s", expectedBody[statusKey], value)
+	}
 }
