@@ -29,7 +29,7 @@ defmodule Wrangler.MixProject do
       {:csv, "~> 2.3"},
       # {:google_api_storage, "~> 0.22"},
       {:goth, "~> 1.2.0"},
-      {:hackney, "~> 1.15.2"},
+      {:hackney, "~> 1.16.0"},
       {:jason, ">= 1.0.0"},
       {:ok, "~> 2.3"},
       {:tesla, "~> 1.3.0"},
