@@ -70,10 +70,10 @@
     "@pulumi/pulumi" "^2.0.0"
     semver "^5.4.0"
 
-"@pulumi/gcp@3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-3.7.1.tgz#c7ee946d97dd99b82ac66a93b0db64269d311363"
-  integrity sha512-h6Az6Xmtuc9L5w+s4yIUiTYlF7bjyloOpQplNGFdtiM+dPdhqkoupvZWsbHpFHWDKc29TQOPY/vqJIOSKT9t+A==
+"@pulumi/gcp@3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-3.8.0.tgz#24464756f33d9cfe56a2412305bb543381d6ccfc"
+  integrity sha512-nx/27sn63m8YXHEW+kToKMQf9t3QaGwUtAAV8SOww/TWpaAy/UD6cjL0JDOAZL+SK2xhFUzuSUigLjQ7UXcr3A==
   dependencies:
     "@pulumi/pulumi" "^2.0.0"
     "@types/express" "^4.16.0"
