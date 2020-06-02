@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"jockey/pkg/healthz"
 	"net/http"
 
@@ -20,6 +21,7 @@ func setupRouter() {
 		c.String(http.StatusOK, "pong")
 	})
 
+	healthz.Version = Version
 	router.GET("/healthz", healthz.HealthGET)
 
 	// Get user value
@@ -32,18 +34,12 @@ func setupRouter() {
 			c.JSON(http.StatusOK, gin.H{"user": user, "status": "no value"})
 		}
 	})
-
-	// Authorized group (uses gin.BasicAuth() middleware)
-	// Same than:
-	// authorized := r.Group("/")
-	// authorized.Use(gin.BasicAuth(gin.Credentials{
-	//	  "foo":  "bar",
-	//	  "manu": "123",
-	//}))
 }
 
 func main() {
 	setupRouter()
+
+	fmt.Println("Running version:", Version)
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":8080")
 }

@@ -2,8 +2,10 @@ package healthz
 
 import (
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"testing"
 
 	"github.com/gin-gonic/gin"
@@ -22,32 +24,46 @@ func setupRouter() {
 
 func TestHealthGET(t *testing.T) {
 	setupRouter()
-	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/healthz", nil)
-	router.ServeHTTP(w, req)
-
-	if status := w.Code; status != http.StatusOK {
-		t.Errorf("endpoint returned wrong status code: got %v want %v",
-			status, http.StatusOK)
-	}
-
-	statusKey := "status"
-	expectedBody := gin.H{
-		statusKey: "pass",
-	}
-	// Convert the JSON response to a map
-	var response map[string]string
-	err := json.Unmarshal([]byte(w.Body.String()), &response)
+	resp := httptest.NewRecorder()
+	req, err := http.NewRequest("GET", "/healthz", nil)
 	if err != nil {
-		t.Errorf("error unmarshalling response into hashmap %s", err)
+		t.Fatal(err)
+	}
+	router.ServeHTTP(resp, req)
+
+	assertStatus(t, resp.Code, http.StatusOK)
+
+	wantedHealthResponse := HealthResponse{
+		"pass",
+		[]string{},
+		"",
 	}
 
-	// Grab the value & whether or not it exists
-	value, exists := response[statusKey]
-	if exists != true {
-		t.Errorf("key %s not found in response map - %s", statusKey, response)
+	got := getHealthResponse(t, resp.Body)
+	assertHealthResponse(t, got, wantedHealthResponse)
+}
+
+func assertStatus(t *testing.T, got, want int) {
+	t.Helper()
+	if got != want {
+		t.Errorf("did not get correct status, got %d, want %d", got, want)
 	}
-	if expectedBody[statusKey] != value {
-		t.Errorf("endpoint returned wrong status: got %s want %s", expectedBody[statusKey], value)
+}
+
+func getHealthResponse(t *testing.T, body io.Reader) (health HealthResponse) {
+	t.Helper()
+	err := json.NewDecoder(body).Decode(&health)
+
+	if err != nil {
+		t.Fatalf("Unable to parse response from server %q into HealthResponse, '%v'", body, err)
+	}
+
+	return
+}
+
+func assertHealthResponse(t *testing.T, got, want HealthResponse) {
+	t.Helper()
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
 	}
 }

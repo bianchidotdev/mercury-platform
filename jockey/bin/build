@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+GIT_COMMIT=${GITHUB_SHA:-$(git rev-list -1 HEAD)}
+
+go build -ldflags "-X main.Version=$GIT_COMMIT"
