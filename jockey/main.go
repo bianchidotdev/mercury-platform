@@ -15,7 +15,7 @@ func setupRouter() {
 	// gin.DisableConsoleColor()
 	router = gin.Default()
 
-	// Internal
+	// Internal routes
 	internal := router.Group("/merc")
 	{
 		// Health
