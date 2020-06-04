@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"jockey/pkg/healthz"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,14 +15,19 @@ func setupRouter() {
 	// gin.DisableConsoleColor()
 	router = gin.Default()
 
-	// Ping test
-	router.GET("/pingz", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
-
-	// Healthcheck endpoint
-	healthz.Version = Version
-	router.GET("/healthz", healthz.HealthGET)
+	// Internal
+	internal := router.Group("/merc")
+	{
+		// Health
+		health := internal.Group("/healthz")
+		{
+			healthz.Version = Version
+			health.GET("/", healthz.HealthGET)
+			health.GET("/shallow", healthz.HealthGET)
+			health.GET("/ping", healthz.PingGET)
+			health.GET("/deep", healthz.DeepHealthGET)
+		}
+	}
 
 	// Jobs
 }

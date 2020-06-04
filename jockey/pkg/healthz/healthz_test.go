@@ -19,13 +19,13 @@ func setupRouter() {
 	router = gin.Default()
 
 	// Ping test
-	router.GET("/healthz", HealthGET)
+	router.GET("/merc/healthz", HealthGET)
 }
 
 func TestHealthGET(t *testing.T) {
 	setupRouter()
 	resp := httptest.NewRecorder()
-	req, err := http.NewRequest("GET", "/healthz", nil)
+	req, err := http.NewRequest("GET", "/merc/healthz", nil)
 	if err != nil {
 		t.Fatal(err)
 	}

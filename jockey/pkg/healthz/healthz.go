@@ -1,6 +1,8 @@
 package healthz
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,4 +28,13 @@ func HealthGET(c *gin.Context) {
 	}
 
 	c.JSON(200, resp)
+}
+
+func PingGET(c *gin.Context) {
+	c.String(http.StatusOK, "pong")
+}
+
+func DeepHealthGET(c *gin.Context) {
+	HealthGET(c)
+	// To implement other checks when available
 }
