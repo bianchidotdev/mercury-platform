@@ -29,7 +29,15 @@ func setupRouter() {
 		}
 	}
 
-	// Jobs
+	v1 := router.Group("/v1")
+	{
+		job := v1.Group("/jobs")
+		{
+			job.GET("/")
+			job.GET("/:job")
+			job.POST("/")
+		}
+	}
 }
 
 func main() {
