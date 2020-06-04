@@ -10,7 +10,7 @@ func TestPingRoute(t *testing.T) {
 	setupRouter()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/ping", nil)
+	req, _ := http.NewRequest("GET", "/pingz", nil)
 	router.ServeHTTP(w, req)
 
 	if status := w.Code; status != http.StatusOK {

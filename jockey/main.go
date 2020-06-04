@@ -17,23 +17,15 @@ func setupRouter() {
 	router = gin.Default()
 
 	// Ping test
-	router.GET("/ping", func(c *gin.Context) {
+	router.GET("/pingz", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
 	})
 
+	// Healthcheck endpoint
 	healthz.Version = Version
 	router.GET("/healthz", healthz.HealthGET)
 
-	// Get user value
-	router.GET("/user/:name", func(c *gin.Context) {
-		user := c.Params.ByName("name")
-		value, ok := db[user]
-		if ok {
-			c.JSON(http.StatusOK, gin.H{"user": user, "value": value})
-		} else {
-			c.JSON(http.StatusOK, gin.H{"user": user, "status": "no value"})
-		}
-	})
+	// Jobs
 }
 
 func main() {
