@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"jockey/pkg/healthz"
+	jobcontroller "jockey/pkg/job_controller"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,27 +16,30 @@ func setupRouter() {
 	// gin.DisableConsoleColor()
 	router = gin.Default()
 
-	// Internal routes
-	internal := router.Group("/merc")
+	api := router.Group("/api")
 	{
-		// Health
-		health := internal.Group("/healthz")
+		// Internal routes
+		internal := api.Group("/merc")
 		{
-			healthz.Version = Version
-			health.GET("/", healthz.HealthGET)
-			health.GET("/shallow", healthz.HealthGET)
-			health.GET("/ping", healthz.PingGET)
-			health.GET("/deep", healthz.DeepHealthGET)
+			// Health
+			health := internal.Group("/healthz")
+			{
+				healthz.Version = Version
+				health.GET("/", healthz.HealthGET)
+				health.GET("/shallow", healthz.HealthGET)
+				health.GET("/ping", healthz.PingGET)
+				health.GET("/deep", healthz.DeepHealthGET)
+			}
 		}
-	}
 
-	v1 := router.Group("/v1")
-	{
-		job := v1.Group("/jobs")
+		v1 := api.Group("/v1")
 		{
-			job.GET("/")
-			job.GET("/:job")
-			job.POST("/")
+			job := v1.Group("/jobs")
+			{
+				job.GET("/", jobcontroller.GetJobs)
+				job.GET("/:id", jobcontroller.GetJobByID)
+				job.POST("/", jobcontroller.CreateJob)
+			}
 		}
 	}
 }
