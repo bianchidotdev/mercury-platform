@@ -4,7 +4,7 @@
         "@types/node": "10.17.27"
     },
     "dependencies": {
-        "@pulumi/pulumi": "2.6.1",
+        "@pulumi/pulumi": "2.7.0",
         "@pulumi/gcp": "3.14.0",
         "@pulumi/docker": "2.2.3"
     }
