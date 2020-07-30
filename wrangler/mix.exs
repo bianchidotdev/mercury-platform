@@ -27,7 +27,7 @@ defmodule Wrangler.MixProject do
   defp deps do
     [
       {:csv, "~> 2.3"},
-      # {:google_api_storage, "~> 0.22"},
+      # {:google_api_storage, "~> 0.23"},
       {:goth, "~> 1.2.0"},
       {:hackney, "~> 1.16.0"},
       {:jason, ">= 1.0.0"},
