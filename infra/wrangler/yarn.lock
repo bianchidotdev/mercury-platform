@@ -79,10 +79,10 @@
     "@types/express" "^4.16.0"
     read-package-json "^2.0.13"
 
-"@pulumi/pulumi@2.11.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.11.0.tgz#672a0c9e75aaf9574a7e7705f54deb409654539a"
-  integrity sha512-xVVW+FJe/lFt6+sljceRI0EEYTNGTFOrhjooOoPB5tVdwXqitdxfxK1is14lLpR+SFwsZ2Ecg0L3oTHyJZ4E7Q==
+"@pulumi/pulumi@2.11.1":
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.11.1.tgz#e399fadf18e7b0424ae2dc9f9f40ff80fcbad536"
+  integrity sha512-798j2hOUb/f1snPjCTChJjXxb5OOH3ao2freKn/RMG0k8ZNveCMYBeOfjaHlHbi7pO/Iag4LT/8R8dikBPwr6g==
   dependencies:
     "@grpc/grpc-js" "^0.6.15"
     "@pulumi/query" "^0.3.0"
