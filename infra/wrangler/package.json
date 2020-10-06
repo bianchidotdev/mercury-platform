@@ -1,7 +1,7 @@
 {
     "name": "wrangler",
     "devDependencies": {
-        "@types/node": "10.17.35"
+        "@types/node": "10.17.36"
     },
     "dependencies": {
         "@pulumi/pulumi": "2.11.2",
