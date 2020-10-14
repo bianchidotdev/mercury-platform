@@ -79,14 +79,15 @@
     "@types/express" "^4.16.0"
     read-package-json "^2.0.13"
 
-"@pulumi/pulumi@2.11.2":
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.11.2.tgz#06073f772d6fdbc8b1b4975f89c47840f74f9a20"
-  integrity sha512-Oeif9ZhhxXu+NaMDR9bUeS/LrAZ/rMyMv6zj/7yyO1dWqk49KctcyNM3EL4HylN4EkfRptM52M4IVs6WrkVoIA==
+"@pulumi/pulumi@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.12.0.tgz#3140f2a59a8cf3c469d065f3b7370561a137d1c7"
+  integrity sha512-fx1ih8Sx/VQTGgkN1P5YZAI7+1/+Y7+YmIgPq/Z6ekyDMB5ZBO1rl8jJmPwM5KAGaf23LGWDtjKuzXwa+pqOGA==
   dependencies:
     "@grpc/grpc-js" "^0.6.15"
     "@pulumi/query" "^0.3.0"
     google-protobuf "^3.5.0"
+    js-yaml "^3.14.0"
     minimist "^1.2.0"
     normalize-package-data "^2.4.0"
     protobufjs "^6.8.6"
@@ -193,6 +194,13 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
+argparse@^1.0.7:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
+  integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
+  dependencies:
+    sprintf-js "~1.0.2"
+
 arrify@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
@@ -276,6 +284,11 @@ es-to-primitive@^1.2.1:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
+esprima@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
+  integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -362,6 +375,14 @@ is-symbol@^1.0.2:
   integrity sha512-OwijhaRSgqvhm/0ZdAcXNZt9lYdKFpcRDT5ULUuYXPoT794UNOdU+gpT6Rzo7b4V2HUl/op6GqY894AZwv9faQ==
   dependencies:
     has-symbols "^1.0.1"
+
+js-yaml@^3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
+  integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
 
 json-parse-better-errors@^1.0.1:
   version "1.0.2"
@@ -579,6 +600,11 @@ spdx-license-ids@^3.0.0:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.5.tgz#3694b5804567a458d3c8045842a6358632f62654"
   integrity sha512-J+FWzZoynJEXGphVIS+XEh3kFSjZX/1i9gFBaWQcB+/tmpe2qUsSBABpcxqxnAxFdiUFEgAX1bjYGQvIZmoz9Q==
+
+sprintf-js@~1.0.2:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
+  integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
 string.prototype.trimend@^1.0.0:
   version "1.0.1"
