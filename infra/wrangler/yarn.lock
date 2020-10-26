@@ -62,10 +62,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/docker@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/docker/-/docker-2.3.1.tgz#5c2c7d2c3a0faadd8494a470c49b0072a7047475"
-  integrity sha512-oT/l6copYSxRjT4Bqd3OUvDOK1aIJPfBAcHlCdOAId2YzQrBt7+/1QCgp1eia2PvTvzZs9bL2g1x4YwsekpT/g==
+"@pulumi/docker@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/docker/-/docker-2.4.0.tgz#aa1eef535f5c33cdf1a2f8013e3dec851d47a154"
+  integrity sha512-1TMep1jxABWIS/1n3n6an/kdDQVL2MZkFaBOztClLTR42pWnSTdwN0OQuKnNSoK3/pRgFpQkM9ZalKXhG3DMCw==
   dependencies:
     "@pulumi/pulumi" "^2.0.0"
     semver "^5.4.0"
