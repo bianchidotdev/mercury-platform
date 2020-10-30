@@ -1,4 +1,4 @@
-FROM elixir:1.10-alpine as builder
+FROM elixir:1.11-alpine as builder
 
 ENV LANG=C.UTF-8 \
   PORT=4000
